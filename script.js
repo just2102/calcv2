@@ -15,6 +15,7 @@ function divide(a,b) {
 
 let operator='';
 // makes sure that user can input all operators using both mouse and keyboard
+// mouse input
 let addButton       =   document.getElementById("button-increment");
 addButton.addEventListener('click',(event)=>getOperator('add'));
 let subtractButton  =   document.getElementById("button-subtract");
@@ -23,7 +24,7 @@ let multiplyButton  =   document.getElementById("button-multiply");
 multiplyButton.addEventListener('click',(event)=>getOperator('multiply'));
 let divideButton    =   document.getElementById("button-divide");
 divideButton.addEventListener('click',(event)=>getOperator('divide'));
-
+// keyboard input
 document.addEventListener('keyup', function(event) {
     if (event.key==='+') {
         getOperator('add')
@@ -35,6 +36,35 @@ document.addEventListener('keyup', function(event) {
         getOperator('divide')
     }
 })
+// add value to inputField by pressing number buttons
+// get all the number buttons from HTML file and save them into variables
+let zero = document.getElementById("button-zero");
+let one =   document.getElementById("button-one");
+let two =   document.getElementById("button-two");
+let three =   document.getElementById("button-three");
+let four =   document.getElementById("button-four");
+let five =   document.getElementById("button-five");
+let six =   document.getElementById("button-six");
+let seven =   document.getElementById("button-seven");
+let eight =   document.getElementById("button-eight");
+let nine =   document.getElementById("button-nine");
+// when user presses one of these buttons, execute addNum(num) function;
+zero.addEventListener('click',(event)=>addNum('0'));
+one.addEventListener('click',(event)=>addNum('1'));
+two.addEventListener('click',(event)=>addNum('2'));
+three.addEventListener('click',(event)=>addNum('3'));
+four.addEventListener('click',(event)=>addNum('4'));
+five.addEventListener('click',(event)=>addNum('5'));
+six.addEventListener('click',(event)=>addNum('6'));
+seven.addEventListener('click',(event)=>addNum('7'));
+eight.addEventListener('click',(event)=>addNum('8'));
+nine.addEventListener('click',(event)=>addNum('9'));
+
+function addNum(num) {
+    inputField.value+=num;
+}
+
+
 let firstNum    =   0
 let a   =   0
 // stores the operator in the 'operator' variable after clicking one of the operators' (+,-,*,/) buttons
@@ -90,4 +120,14 @@ function evaluate(a,b,operator) {
         result  =   divide(a,b);
         inputField.value    =   result;
     }
+}
+
+//  clear function (assigned to clearButton) resets all our variables
+let clearButton =   document.getElementById('button-clear');
+clearButton.addEventListener('click', clear)
+function clear() {
+    inputField.value    =   '';
+    firstNum    =   0;
+    secondNum   =   0;
+    operator    =   0;
 }

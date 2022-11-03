@@ -1,4 +1,11 @@
 let inputField = document.getElementById("input_field")
+// restrict from typing ',' into the input box
+document.addEventListener('keyup', function(event) {
+    if (event.key===',') {
+        inputField.value="Please use '.' to input non-integral numbers"
+    }
+})
+
 // basic operations
 function add(a,b) {
     return a+b;
@@ -75,7 +82,7 @@ function getOperator(button) {
 // to prevent this, we make an array from inputField.value, check if its last element is an operator and pop() it.
     let checkForOperatorArray   =   inputField.value.split('');
     for (let i = 0 ; i<checkForOperatorArray.length; i++) {
-        if (checkForOperatorArray[i]=='+' || checkForOperatorArray[i]=='-' || checkForOperatorArray[i]=='*' || checkForOperatorArray=='/') {
+        if (checkForOperatorArray[i]=='+' || checkForOperatorArray[i]=='-' || checkForOperatorArray[i]=='*' || checkForOperatorArray[i]=='/') {
             checkForOperatorArray.pop()
         }
     }

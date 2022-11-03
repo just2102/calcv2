@@ -1,6 +1,9 @@
 * {
     margin:0;
     font-family:'Courier New', Courier, monospace;
+    background: rgb(111,95,117);
+    background: linear-gradient(90deg, rgba(111,95,117,1) 0%, rgba(124,58,134,1) 33%, rgba(111,48,107,1) 100%);
+
 }
 
 header {
@@ -12,13 +15,10 @@ header {
     font-size:xx-large;
     font-weight:bold;
 }
-.middle {
-    background-color: rgb(52, 151, 103);
-    height:40rem;
-}
 
 .calculator {
-    background-color:rgb(112, 158, 139);
+    background: rgb(111,95,117);
+    background: linear-gradient(90deg, rgba(111,95,117,1) 0%, rgba(134,58,103,1) 40%, rgba(111,48,107,1) 100%);
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -27,19 +27,46 @@ header {
     width:4rem;
     margin-left:auto;
     margin-right:auto;
+    border:solid;
+    
+    box-shadow: 5px 10px;
 }
 #input_field {
     width:20rem;
     height:2rem;
     padding:2px;
     margin-bottom: 2rem;
-    background-color:aquamarine;
     border-radius:.5rem;
+    color:azure;
+    font-weight: bold;
+    font-size:large;
 }
 
-
-#buttons {
+.buttons{
     display:grid;
     grid-template-columns: repeat(4, 5rem);
-    grid-template-rows: repeat(4, 2rem);
+    grid-template-rows: repeat(4, 4rem);
+}
+button {
+    width:5rem;
+    height:3rem;
+    color:rgb(173, 163, 176);
+    font-weight: bolder;
+    font-size:larger;
+}
+button:hover {
+    transform: scale(1.1);
+    transition: 200ms;
+}
+
+#button-multiply:hover, #button-increment:hover, #button-subtract:hover, #button-divide:hover, #button-result:hover {
+    animation: 200ms;
+    background: rgb(111,95,117);
+    background: linear-gradient(90deg, rgba(111,95,117,1) 0%, rgba(124,58,134,1) 91%, rgba(111,48,107,1) 100%);
+    color:antiquewhite;
+}
+#button-clear:hover {
+    transform:scale (1.01);
+    transition:150ms;
+    color:antiquewhite;
 }

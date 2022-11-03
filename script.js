@@ -114,18 +114,20 @@ resultButton.addEventListener('click', (event) => evaluate(a,b,operator))
 
 let result = 0
 function evaluate(a,b,operator) {
-    if (operator=='add') {
+    if (operator=='add' && b!=0) {
         result = add(a,b);
         inputField.value    =   result;
-    } else if (operator=='subtract') {
+    } else if (operator=='subtract' && b!=0) {
         result  =   subtract(a,b);
         inputField.value    =   result;
-    } else if (operator=='multiply') {
+    } else if (operator=='multiply' && b!=0) {
         result  =   multiply(a,b);
         inputField.value    =   result;
-    } else if (operator=='divide') {
+    } else if (operator=='divide' && b!=0) {
         result  =   divide(a,b);
         inputField.value    =   result;
+    } else {
+        inputField.value="Don't try this on me!"
     }
 }
 
